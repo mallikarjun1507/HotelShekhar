@@ -1,0 +1,2395 @@
+/* =========================================================
+   HOTEL SHEKAR
+   MAIN DESIGN SYSTEM
+========================================================= */
+
+
+/* =========================================================
+   ROOT VARIABLES
+========================================================= */
+
+:root {
+
+    --ivory: #f7f4ec;
+
+    --ivory-light: #fcfaf5;
+
+    --white: #ffffff;
+
+    --charcoal: #171715;
+
+    --charcoal-light: #242421;
+
+    --gold: #c7a252;
+
+    --gold-light: #dfc27b;
+
+    --gold-dark: #9e7b31;
+
+    --text: #292925;
+
+    --text-light: #686861;
+
+    --border: #ddd8cc;
+
+    --green: #1d8f4d;
+
+    --container: 1200px;
+
+    --transition: 0.35s ease;
+
+}
+
+
+/* =========================================================
+   RESET
+========================================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+html {
+    scroll-behavior: smooth;
+}
+
+
+body {
+
+    font-family: "DM Sans", sans-serif;
+
+    color: var(--text);
+
+    background: var(--ivory-light);
+
+    line-height: 1.6;
+
+    overflow-x: hidden;
+
+}
+
+
+img {
+    display: block;
+    width: 100%;
+}
+
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+
+button,
+input,
+textarea {
+    font: inherit;
+}
+
+
+button {
+    cursor: pointer;
+}
+
+
+.container {
+
+    width: min(
+        calc(100% - 80px),
+        var(--container)
+    );
+
+    margin: auto;
+
+}
+
+
+/* =========================================================
+   TYPOGRAPHY
+========================================================= */
+
+h1,
+h2,
+h3,
+h4 {
+
+    font-family: "Playfair Display", serif;
+
+    font-weight: 500;
+
+    line-height: 1.1;
+
+}
+
+
+h1 {
+    font-size: clamp(3.5rem, 7vw, 6.5rem);
+}
+
+
+h2 {
+    font-size: clamp(2.5rem, 5vw, 4.5rem);
+}
+
+
+h3 {
+    font-size: 1.7rem;
+}
+
+
+p {
+    color: var(--text-light);
+}
+
+
+em {
+
+    color: var(--gold-dark);
+
+    font-style: normal;
+
+}
+
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.site-header {
+
+    position: fixed;
+
+    top: 0;
+
+    left: 0;
+
+    width: 100%;
+
+    z-index: 1000;
+
+    color: var(--white);
+
+    transition: var(--transition);
+
+}
+
+
+.site-header.scrolled {
+
+    background: rgba(23, 23, 21, 0.96);
+
+    backdrop-filter: blur(15px);
+
+    box-shadow: 0 5px 30px rgba(0, 0, 0, 0.12);
+
+}
+
+
+.nav-container {
+
+    min-height: 90px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 30px;
+
+}
+
+
+/* =========================================================
+   BRAND
+========================================================= */
+
+.brand {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    flex-shrink: 0;
+
+}
+
+
+.logo-mark {
+
+    width: 48px;
+
+    height: 48px;
+
+    border: 1px solid var(--gold);
+
+    border-radius: 50%;
+
+    display: grid;
+
+    place-items: center;
+
+    color: var(--gold);
+
+    font-family: "Playfair Display", serif;
+
+    font-size: 25px;
+
+}
+
+
+.brand-text {
+
+    display: flex;
+
+    flex-direction: column;
+
+    line-height: 1;
+
+}
+
+
+.brand-text strong {
+
+    font-size: 10px;
+
+    letter-spacing: 3px;
+
+    font-weight: 500;
+
+}
+
+
+.brand-text span {
+
+    font-family: "Playfair Display", serif;
+
+    font-size: 21px;
+
+    letter-spacing: 1px;
+
+}
+
+
+/* =========================================================
+   DESKTOP NAVIGATION
+========================================================= */
+
+.desktop-nav {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 30px;
+
+}
+
+
+.desktop-nav a {
+
+    font-size: 14px;
+
+    letter-spacing: 0.5px;
+
+    position: relative;
+
+    transition: var(--transition);
+
+}
+
+
+.desktop-nav a::after {
+
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+
+    bottom: -7px;
+
+    width: 0;
+
+    height: 1px;
+
+    background: var(--gold);
+
+    transition: var(--transition);
+
+}
+
+
+.desktop-nav a:hover {
+
+    color: var(--gold-light);
+
+}
+
+
+.desktop-nav a:hover::after {
+
+    width: 100%;
+
+}
+
+
+/* =========================================================
+   BOOK BUTTON
+========================================================= */
+
+.nav-book {
+
+    background: var(--gold);
+
+    color: var(--charcoal);
+
+    padding: 13px 23px;
+
+    font-size: 13px;
+
+    font-weight: 600;
+
+    text-transform: uppercase;
+
+    letter-spacing: 1px;
+
+    transition: var(--transition);
+
+}
+
+
+.nav-book:hover {
+
+    background: var(--white);
+
+    transform: translateY(-2px);
+
+}
+
+
+/* =========================================================
+   MOBILE MENU
+========================================================= */
+
+.mobile-menu-button {
+
+    display: none;
+
+    width: 45px;
+
+    height: 45px;
+
+    border: 1px solid rgba(255,255,255,0.5);
+
+    background: transparent;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    align-items: center;
+
+    gap: 5px;
+
+}
+
+
+.mobile-menu-button span {
+
+    width: 20px;
+
+    height: 1px;
+
+    background: white;
+
+    transition: var(--transition);
+
+}
+
+
+.mobile-nav {
+
+    display: none;
+
+}
+
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.hero {
+
+    min-height: 100vh;
+
+    position: relative;
+
+    display: flex;
+
+    align-items: center;
+
+    color: white;
+
+    background-image:
+        url("https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?auto=format&fit=crop&w=2200&q=90");
+
+    background-size: cover;
+
+    background-position: center;
+
+}
+
+
+.hero-overlay {
+
+    position: absolute;
+
+    inset: 0;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(0,0,0,0.78) 0%,
+            rgba(0,0,0,0.45) 50%,
+            rgba(0,0,0,0.20) 100%
+        );
+
+}
+
+
+.hero-content {
+
+    position: relative;
+
+    z-index: 2;
+
+    padding-top: 100px;
+
+    padding-bottom: 180px;
+
+}
+
+
+.eyebrow,
+.section-label {
+
+    display: inline-block;
+
+    font-size: 12px;
+
+    font-weight: 600;
+
+    letter-spacing: 3px;
+
+    text-transform: uppercase;
+
+    color: var(--gold);
+
+    margin-bottom: 22px;
+
+}
+
+
+.hero h1 {
+
+    max-width: 900px;
+
+    margin-bottom: 25px;
+
+}
+
+
+.hero-description {
+
+    max-width: 600px;
+
+    font-size: 18px;
+
+    color: rgba(255,255,255,0.82);
+
+    margin-bottom: 35px;
+
+}
+
+
+.hero-buttons {
+
+    display: flex;
+
+    gap: 14px;
+
+    flex-wrap: wrap;
+
+}
+
+
+/* =========================================================
+   BUTTONS
+========================================================= */
+
+.btn {
+
+    min-height: 52px;
+
+    padding: 0 25px;
+
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 10px;
+
+    font-size: 13px;
+
+    font-weight: 600;
+
+    letter-spacing: 0.8px;
+
+    text-transform: uppercase;
+
+    transition: var(--transition);
+
+}
+
+
+.btn-gold {
+
+    background: var(--gold);
+
+    color: var(--charcoal);
+
+}
+
+
+.btn-gold:hover {
+
+    background: var(--gold-light);
+
+    transform: translateY(-3px);
+
+}
+
+
+.btn-outline {
+
+    border: 1px solid rgba(255,255,255,0.7);
+
+    color: white;
+
+}
+
+
+.btn-outline:hover {
+
+    background: white;
+
+    color: var(--charcoal);
+
+}
+
+
+.btn-white {
+
+    background: white;
+
+    color: var(--charcoal);
+
+}
+
+
+.btn-dark {
+
+    background: var(--charcoal);
+
+    color: white;
+
+}
+
+
+.btn-dark:hover {
+
+    background: var(--gold);
+
+    color: var(--charcoal);
+
+}
+
+
+/* =========================================================
+   HERO INFO BAR
+========================================================= */
+
+.hero-info {
+
+    position: absolute;
+
+    bottom: 0;
+
+    left: 0;
+
+    width: 100%;
+
+    z-index: 3;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    border-top: 1px solid
+        rgba(255,255,255,0.2);
+
+}
+
+
+.hero-info-item {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 15px;
+
+    padding: 20px 35px;
+
+    border-right: 1px solid
+        rgba(255,255,255,0.2);
+
+}
+
+
+.hero-info-item:last-child {
+
+    border-right: 0;
+
+}
+
+
+.hero-info-item > i {
+
+    color: var(--gold);
+
+    font-size: 20px;
+
+}
+
+
+.hero-info-item div {
+
+    display: flex;
+
+    flex-direction: column;
+
+}
+
+
+.hero-info-item span {
+
+    color: rgba(255,255,255,0.55);
+
+    font-size: 11px;
+
+    text-transform: uppercase;
+
+    letter-spacing: 1px;
+
+}
+
+
+.hero-info-item strong {
+
+    font-size: 14px;
+
+    font-weight: 500;
+
+}
+
+
+/* =========================================================
+   GENERAL SECTIONS
+========================================================= */
+
+.section {
+
+    padding: 120px 0;
+
+}
+
+
+.section-heading {
+
+    display: flex;
+
+    align-items: end;
+
+    justify-content: space-between;
+
+    gap: 50px;
+
+    margin-bottom: 65px;
+
+}
+
+
+.section-heading > p {
+
+    max-width: 420px;
+
+}
+
+
+.centered {
+
+    display: block;
+
+    text-align: center;
+
+}
+
+
+.centered > h2 {
+
+    max-width: 700px;
+
+    margin: auto;
+
+}
+
+
+/* =========================================================
+   ABOUT
+========================================================= */
+
+.about-section {
+
+    background: var(--ivory-light);
+
+}
+
+
+.about-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        1fr 0.9fr;
+
+    gap: 100px;
+
+    align-items: center;
+
+}
+
+
+.about-image {
+
+    position: relative;
+
+}
+
+
+.about-image img {
+
+    height: 650px;
+
+    object-fit: cover;
+
+}
+
+
+.experience-card {
+
+    position: absolute;
+
+    right: -35px;
+
+    bottom: 35px;
+
+    width: 220px;
+
+    padding: 25px;
+
+    background: var(--charcoal);
+
+    color: white;
+
+    border-top: 3px solid var(--gold);
+
+}
+
+
+.experience-card span {
+
+    display: block;
+
+    color: var(--gold);
+
+    font-size: 10px;
+
+    letter-spacing: 3px;
+
+}
+
+
+.experience-card strong {
+
+    display: block;
+
+    font-family: "Playfair Display", serif;
+
+    font-size: 30px;
+
+    margin: 3px 0;
+
+}
+
+
+.experience-card small {
+
+    color: #aaa;
+
+}
+
+
+.about-content h2 {
+
+    margin-bottom: 25px;
+
+}
+
+
+.about-content p {
+
+    max-width: 550px;
+
+    margin-bottom: 18px;
+
+}
+
+
+.about-features {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, 1fr);
+
+    gap: 14px;
+
+    margin: 35px 0;
+
+}
+
+
+.about-features div {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    font-size: 14px;
+
+}
+
+
+.about-features i {
+
+    color: var(--gold-dark);
+
+}
+
+
+.text-link {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    color: var(--charcoal);
+
+    font-weight: 600;
+
+    border-bottom: 1px solid var(--gold);
+
+    padding-bottom: 5px;
+
+}
+
+
+/* =========================================================
+   ROOMS
+========================================================= */
+
+.rooms-section {
+
+    background: #efede6;
+
+}
+
+
+.rooms-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, 1fr);
+
+    gap: 30px;
+
+}
+
+
+.room-card {
+
+    background: var(--white);
+
+}
+
+
+.room-image {
+
+    overflow: hidden;
+
+}
+
+
+.room-image img {
+
+    height: 390px;
+
+    object-fit: cover;
+
+    transition: transform 0.7s ease;
+
+}
+
+
+.room-card:hover
+.room-image img {
+
+    transform: scale(1.05);
+
+}
+
+
+.room-content {
+
+    padding: 30px;
+
+}
+
+
+.room-number {
+
+    color: var(--gold-dark);
+
+    font-size: 11px;
+
+    letter-spacing: 2px;
+
+}
+
+
+.room-content h3 {
+
+    margin: 8px 0;
+
+}
+
+
+.room-content p {
+
+    margin-bottom: 22px;
+
+}
+
+
+.room-features {
+
+    display: flex;
+
+    gap: 18px;
+
+    flex-wrap: wrap;
+
+}
+
+
+.room-features span {
+
+    font-size: 12px;
+
+    color: var(--text-light);
+
+}
+
+
+.room-features i {
+
+    color: var(--gold-dark);
+
+    margin-right: 5px;
+
+}
+
+
+/* =========================================================
+   AMENITIES
+========================================================= */
+
+.amenities-section {
+
+    background: var(--charcoal);
+
+    color: white;
+
+}
+
+
+.amenities-section h2 {
+
+    color: white;
+
+}
+
+
+.amenities-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    border-top: 1px solid
+        rgba(255,255,255,0.15);
+
+    border-left: 1px solid
+        rgba(255,255,255,0.15);
+
+}
+
+
+.amenity-card {
+
+    padding: 45px 35px;
+
+    border-right: 1px solid
+        rgba(255,255,255,0.15);
+
+    border-bottom: 1px solid
+        rgba(255,255,255,0.15);
+
+    transition: var(--transition);
+
+}
+
+
+.amenity-card:hover {
+
+    background: #22221f;
+
+}
+
+
+.amenity-icon {
+
+    width: 52px;
+
+    height: 52px;
+
+    border: 1px solid var(--gold);
+
+    color: var(--gold);
+
+    display: grid;
+
+    place-items: center;
+
+    margin-bottom: 25px;
+
+}
+
+
+.amenity-card h3 {
+
+    font-size: 21px;
+
+    margin-bottom: 8px;
+
+}
+
+
+.amenity-card p {
+
+    color: #a9a9a1;
+
+}
+
+
+/* =========================================================
+   BOOKING BANNER
+========================================================= */
+
+.booking-banner {
+
+    background:
+        linear-gradient(
+            110deg,
+            #191917,
+            #292823
+        );
+
+    color: white;
+
+    padding: 75px 0;
+
+}
+
+
+.booking-content {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 40px;
+
+}
+
+
+.booking-content h2 {
+
+    margin-bottom: 10px;
+
+}
+
+
+.booking-content p {
+
+    color: #aaa;
+
+}
+
+
+.booking-actions {
+
+    display: flex;
+
+    gap: 12px;
+
+    flex-wrap: wrap;
+
+}
+
+
+.section-label.light {
+
+    color: var(--gold);
+
+}
+
+
+/* =========================================================
+   GALLERY
+========================================================= */
+
+.gallery-section {
+
+    background: var(--ivory-light);
+
+}
+
+
+.gallery-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        1.3fr 0.7fr;
+
+    grid-template-rows:
+        300px 300px;
+
+    gap: 15px;
+
+}
+
+
+.gallery-item {
+
+    overflow: hidden;
+
+}
+
+
+.gallery-item img {
+
+    height: 100%;
+
+    object-fit: cover;
+
+    transition: transform 0.7s ease;
+
+}
+
+
+.gallery-item:hover img {
+
+    transform: scale(1.05);
+
+}
+
+
+.gallery-large {
+
+    grid-row: span 2;
+
+}
+
+
+.gallery-wide {
+
+    grid-column: span 1;
+
+}
+
+
+/* =========================================================
+   LOCATION
+========================================================= */
+
+.location-section {
+
+    background: #efede6;
+
+}
+
+
+.location-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        1.1fr 0.9fr;
+
+    min-height: 600px;
+
+}
+
+
+.map-wrapper iframe {
+
+    width: 100%;
+
+    height: 100%;
+
+    min-height: 600px;
+
+    border: 0;
+
+    filter: grayscale(0.3);
+
+}
+
+
+.location-content {
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    padding: 80px;
+
+}
+
+
+.location-content h2 {
+
+    margin-bottom: 20px;
+
+}
+
+
+.location-content > p {
+
+    max-width: 450px;
+
+    margin-bottom: 35px;
+
+}
+
+
+.address {
+
+    display: flex;
+
+    gap: 18px;
+
+    margin-bottom: 35px;
+
+}
+
+
+.address > i {
+
+    color: var(--gold-dark);
+
+    font-size: 23px;
+
+    margin-top: 5px;
+
+}
+
+
+.address strong {
+
+    font-family: "Playfair Display", serif;
+
+    font-size: 21px;
+
+}
+
+
+.address p {
+
+    margin-top: 5px;
+
+}
+
+
+/* =========================================================
+   CONTACT
+========================================================= */
+
+.contact-section {
+
+    background: var(--ivory-light);
+
+}
+
+
+.contact-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        0.8fr 1.2fr;
+
+    gap: 100px;
+
+}
+
+
+.contact-info h2 {
+
+    margin-bottom: 20px;
+
+}
+
+
+.contact-info > p {
+
+    max-width: 480px;
+
+    margin-bottom: 35px;
+
+}
+
+
+.contact-details {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 20px;
+
+}
+
+
+.contact-detail {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 15px;
+
+}
+
+
+.contact-icon {
+
+    width: 48px;
+
+    height: 48px;
+
+    border: 1px solid var(--border);
+
+    display: grid;
+
+    place-items: center;
+
+    color: var(--gold-dark);
+
+}
+
+
+.contact-detail div:last-child {
+
+    display: flex;
+
+    flex-direction: column;
+
+}
+
+
+.contact-detail span {
+
+    color: var(--text-light);
+
+    font-size: 12px;
+
+}
+
+
+.contact-detail strong {
+
+    font-weight: 500;
+
+}
+
+
+.social-links {
+
+    display: flex;
+
+    gap: 10px;
+
+    margin-top: 35px;
+
+}
+
+
+.social-links a {
+
+    width: 42px;
+
+    height: 42px;
+
+    background: var(--charcoal);
+
+    color: white;
+
+    display: grid;
+
+    place-items: center;
+
+    transition: var(--transition);
+
+}
+
+
+.social-links a:hover {
+
+    background: var(--gold);
+
+    color: var(--charcoal);
+
+}
+
+
+/* =========================================================
+   CONTACT FORM
+========================================================= */
+
+.contact-form-wrapper {
+
+    background: white;
+
+    padding: 45px;
+
+    border: 1px solid var(--border);
+
+}
+
+
+.contact-form {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 22px;
+
+}
+
+
+.form-row {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, 1fr);
+
+    gap: 20px;
+
+}
+
+
+.form-group {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 8px;
+
+}
+
+
+.form-group label {
+
+    font-size: 12px;
+
+    font-weight: 600;
+
+    text-transform: uppercase;
+
+    letter-spacing: 1px;
+
+}
+
+
+.form-group input,
+.form-group textarea {
+
+    width: 100%;
+
+    border: 1px solid var(--border);
+
+    background: var(--ivory-light);
+
+    padding: 15px;
+
+    outline: none;
+
+    color: var(--text);
+
+    transition: var(--transition);
+
+}
+
+
+.form-group textarea {
+
+    resize: vertical;
+
+}
+
+
+.form-group input:focus,
+.form-group textarea:focus {
+
+    border-color: var(--gold);
+
+    background: white;
+
+}
+
+
+.form-submit {
+
+    border: 0;
+
+    background: var(--charcoal);
+
+    color: white;
+
+    padding: 17px 25px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 10px;
+
+    text-transform: uppercase;
+
+    letter-spacing: 1px;
+
+    font-size: 12px;
+
+    transition: var(--transition);
+
+}
+
+
+.form-submit:hover {
+
+    background: var(--gold);
+
+    color: var(--charcoal);
+
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+.footer {
+
+    background: #11110f;
+
+    color: white;
+
+    padding-top: 70px;
+
+}
+
+
+.footer-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        1.5fr repeat(3, 1fr);
+
+    gap: 50px;
+
+    padding-bottom: 60px;
+
+}
+
+
+.footer-brand p {
+
+    max-width: 280px;
+
+    color: #8f8f89;
+
+    margin-top: 20px;
+
+}
+
+
+.footer-column {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 10px;
+
+}
+
+
+.footer-column h4 {
+
+    font-family: "DM Sans", sans-serif;
+
+    font-size: 12px;
+
+    letter-spacing: 2px;
+
+    text-transform: uppercase;
+
+    color: var(--gold);
+
+    margin-bottom: 10px;
+
+}
+
+
+.footer-column a {
+
+    color: #aaa;
+
+    font-size: 14px;
+
+    transition: var(--transition);
+
+}
+
+
+.footer-column a:hover {
+
+    color: white;
+
+}
+
+
+.footer-bottom {
+
+    border-top: 1px solid
+        rgba(255,255,255,0.1);
+
+    min-height: 70px;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    color: #777;
+
+    font-size: 12px;
+
+}
+
+
+/* =========================================================
+   WHATSAPP FLOATING BUTTON
+========================================================= */
+
+.whatsapp-float {
+
+    position: fixed;
+
+    right: 25px;
+
+    bottom: 25px;
+
+    z-index: 999;
+
+    width: 58px;
+
+    height: 58px;
+
+    background: var(--green);
+
+    color: white;
+
+    border-radius: 50%;
+
+    display: grid;
+
+    place-items: center;
+
+    font-size: 27px;
+
+    box-shadow:
+        0 10px 30px rgba(0,0,0,0.25);
+
+    transition: var(--transition);
+
+}
+
+
+.whatsapp-float:hover {
+
+    transform: translateY(-5px) scale(1.05);
+
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 1000px) {
+
+    .container {
+
+        width: min(
+            calc(100% - 50px),
+            var(--container)
+        );
+
+    }
+
+
+    .desktop-nav {
+
+        gap: 18px;
+
+    }
+
+
+    .desktop-nav a {
+
+        font-size: 12px;
+
+    }
+
+
+    .about-grid {
+
+        gap: 50px;
+
+    }
+
+
+    .about-image img {
+
+        height: 550px;
+
+    }
+
+
+    .experience-card {
+
+        right: -15px;
+
+    }
+
+
+    .location-content {
+
+        padding: 50px;
+
+    }
+
+
+    .contact-grid {
+
+        gap: 50px;
+
+    }
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 768px) {
+
+
+    /* ---------- CONTAINER ---------- */
+
+    .container {
+
+        width: calc(100% - 36px);
+
+    }
+
+
+    /* ---------- HEADER ---------- */
+
+    .nav-container {
+
+        min-height: 75px;
+
+    }
+
+
+    .desktop-nav,
+    .nav-book {
+
+        display: none;
+
+    }
+
+
+    .mobile-menu-button {
+
+        display: flex;
+
+    }
+
+
+    .mobile-nav {
+
+        position: absolute;
+
+        top: 75px;
+
+        left: 0;
+
+        width: 100%;
+
+        background: rgba(23,23,21,0.98);
+
+        backdrop-filter: blur(20px);
+
+        padding: 20px;
+
+        display: flex;
+
+        flex-direction: column;
+
+        gap: 0;
+
+        transform:
+            translateY(-20px);
+
+        opacity: 0;
+
+        visibility: hidden;
+
+        transition: var(--transition);
+
+    }
+
+
+    .mobile-nav.active {
+
+        transform: translateY(0);
+
+        opacity: 1;
+
+        visibility: visible;
+
+    }
+
+
+    .mobile-nav > a {
+
+        padding: 15px 5px;
+
+        border-bottom:
+            1px solid rgba(255,255,255,0.1);
+
+        color: white;
+
+    }
+
+
+    .mobile-nav .mobile-book {
+
+        margin-top: 15px;
+
+        text-align: center;
+
+        background: var(--gold);
+
+        color: var(--charcoal);
+
+        border: 0;
+
+        font-weight: 600;
+
+    }
+
+
+    /* ---------- HERO ---------- */
+
+    .hero {
+
+        min-height: 850px;
+
+        background-position:
+            62% center;
+
+    }
+
+
+    .hero-content {
+
+        padding-top: 130px;
+
+        padding-bottom: 220px;
+
+    }
+
+
+    .hero h1 {
+
+        font-size: clamp(
+            3rem,
+            13vw,
+            4.5rem
+        );
+
+    }
+
+
+    .hero-description {
+
+        font-size: 16px;
+
+    }
+
+
+    .hero-info {
+
+        grid-template-columns: 1fr;
+
+    }
+
+
+    .hero-info-item {
+
+        padding: 12px 20px;
+
+        border-right: 0;
+
+        border-bottom:
+            1px solid rgba(255,255,255,0.15);
+
+    }
+
+
+    .hero-info-item:last-child {
+
+        border-bottom: 0;
+
+    }
+
+
+    /* ---------- SECTIONS ---------- */
+
+    .section {
+
+        padding: 80px 0;
+
+    }
+
+
+    .section-heading {
+
+        display: block;
+
+        margin-bottom: 40px;
+
+    }
+
+
+    .section-heading > p {
+
+        margin-top: 20px;
+
+    }
+
+
+    /* ---------- ABOUT ---------- */
+
+    .about-grid {
+
+        grid-template-columns: 1fr;
+
+        gap: 55px;
+
+    }
+
+
+    .about-image img {
+
+        height: 450px;
+
+    }
+
+
+    .experience-card {
+
+        right: 15px;
+
+        bottom: -25px;
+
+    }
+
+
+    .about-content {
+
+        padding-top: 15px;
+
+    }
+
+
+    /* ---------- ROOMS ---------- */
+
+    .rooms-grid {
+
+        grid-template-columns: 1fr;
+
+    }
+
+
+    .room-image img {
+
+        height: 320px;
+
+    }
+
+
+    /* ---------- AMENITIES ---------- */
+
+    .amenities-grid {
+
+        grid-template-columns:
+            repeat(2, 1fr);
+
+    }
+
+
+    .amenity-card {
+
+        padding: 30px 20px;
+
+    }
+
+
+    /* ---------- BOOKING ---------- */
+
+    .booking-content {
+
+        display: block;
+
+    }
+
+
+    .booking-actions {
+
+        margin-top: 30px;
+
+    }
+
+
+    /* ---------- GALLERY ---------- */
+
+    .gallery-grid {
+
+        grid-template-columns: 1fr 1fr;
+
+        grid-template-rows:
+            250px 180px 180px;
+
+    }
+
+
+    .gallery-large {
+
+        grid-column: span 2;
+
+        grid-row: span 1;
+
+    }
+
+
+    .gallery-wide {
+
+        grid-column: span 2;
+
+    }
+
+
+    /* ---------- LOCATION ---------- */
+
+    .location-grid {
+
+        grid-template-columns: 1fr;
+
+    }
+
+
+    .map-wrapper iframe {
+
+        min-height: 400px;
+
+    }
+
+
+    .location-content {
+
+        padding: 70px 20px;
+
+    }
+
+
+    /* ---------- CONTACT ---------- */
+
+    .contact-grid {
+
+        grid-template-columns: 1fr;
+
+        gap: 60px;
+
+    }
+
+
+    .contact-form-wrapper {
+
+        padding: 25px 20px;
+
+    }
+
+
+    .form-row {
+
+        grid-template-columns: 1fr;
+
+    }
+
+
+    /* ---------- FOOTER ---------- */
+
+    .footer-grid {
+
+        grid-template-columns:
+            1fr 1fr;
+
+        gap: 40px 20px;
+
+    }
+
+
+    .footer-brand {
+
+        grid-column: span 2;
+
+    }
+
+
+    .footer-bottom {
+
+        flex-direction: column;
+
+        justify-content: center;
+
+        gap: 5px;
+
+        text-align: center;
+
+        padding: 20px 0;
+
+    }
+
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media (max-width: 480px) {
+
+
+    .container {
+
+        width: calc(100% - 28px);
+
+    }
+
+
+    .brand-text span {
+
+        font-size: 18px;
+
+    }
+
+
+    .logo-mark {
+
+        width: 42px;
+
+        height: 42px;
+
+    }
+
+
+    .hero {
+
+        min-height: 800px;
+
+    }
+
+
+    .hero h1 {
+
+        font-size: 43px;
+
+    }
+
+
+    .hero-buttons {
+
+        flex-direction: column;
+
+        align-items: stretch;
+
+    }
+
+
+    .btn {
+
+        width: 100%;
+
+    }
+
+
+    .about-features {
+
+        grid-template-columns: 1fr;
+
+    }
+
+
+    .amenities-grid {
+
+        grid-template-columns: 1fr;
+
+    }
+
+
+    .gallery-grid {
+
+        display: grid;
+
+        grid-template-columns: 1fr;
+
+        grid-template-rows:
+            repeat(4, 220px);
+
+    }
+
+
+    .gallery-large,
+    .gallery-wide {
+
+        grid-column: auto;
+
+        grid-row: auto;
+
+    }
+
+
+    .footer-grid {
+
+        grid-template-columns: 1fr;
+
+    }
+
+
+    .footer-brand {
+
+        grid-column: auto;
+
+    }
+
+
+    .whatsapp-float {
+
+        width: 52px;
+
+        height: 52px;
+
+        right: 17px;
+
+        bottom: 17px;
+
+    }
+
+}
